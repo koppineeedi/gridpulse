@@ -130,7 +130,7 @@ When telemetry readings breach safety thresholds (e.g. Temp $> 85^\circ\text{C}$
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/Gridpulse-Smart-grid-monitor.git
+git clone https://github.com/your-username/gridpulse.git
 cd Gridpulse-Smart-grid-monitor
 ```
 
