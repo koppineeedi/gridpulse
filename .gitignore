@@ -1,0 +1,20 @@
+# Maven build outputs
+**/target/
+*.class
+*.war
+
+# Node & Frontend build outputs
+**/node_modules/
+**/dist/
+.vite/
+
+# IDE & System files
+.idea/
+*.iml
+.vscode/
+.DS_Store
+*.log
+
+# Temporary build scripts / docs artifacts
+GridPulse_Documentation.html
+generate_pdf_doc.py
