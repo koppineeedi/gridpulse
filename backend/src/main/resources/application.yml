@@ -1,0 +1,70 @@
+spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  application:
+    name: gridpulse
+  datasource:
+    url: jdbc:mysql://gridpulse-db.cxy8c02umj4p.ap-south-1.rds.amazonaws.com:3306/gridpulse?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+    username: root
+    password: Vamsi1122#
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+  mail:
+    host: localhost
+    port: 25
+    username: dev-user
+    password: dev-password
+
+logging:
+  level:
+    root: INFO
+    com.gridpulse: DEBUG
+    org.springframework.security: INFO
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+
+gridpulse:
+  cors:
+    allowed-origins: http://localhost:5173
+  jwt:
+    secret: 9a67471a79b16bb185cfb52e399588b444747c32bf2542a1772f4e24cf8fef7f
+    expiration-ms: 86400000
+  dynamodb:
+    mock: true
+    aws:
+      region: us-east-1
+  groq:
+    api-key: ${GROQ_API_KEY:}
+    model: llama-3.3-70b-versatile
+    url: https://api.groq.com/openai/v1
+  seed:
+    admin-password: Admin@123
+    operator-password: Operator@123
+    technician-password: tempPassword123
+
+---
+spring:
+  config:
+    activate:
+      on-profile: h2
+  datasource:
+    url: jdbc:h2:mem:gridpulse;MODE=MySQL;DB_CLOSE_DELAY=-1
+    username: sa
+    password: ""
+    driver-class-name: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop

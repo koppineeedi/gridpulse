@@ -1,0 +1,99 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+@theme {
+  --color-darkBg: #0b0f19;
+  --color-cardBg: #151d30;
+  --color-cardBorder: #222f4d;
+  --color-brandBlue: #3b82f6;
+  --color-brandGreen: #10b981;
+  --color-brandAmber: #f59e0b;
+  --color-brandRed: #ef4444;
+  --font-sans: 'Inter', 'Outfit', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-darkBg text-slate-100 font-sans antialiased overflow-x-hidden;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.03) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+}
+
+
+
+.glass-panel {
+  @apply bg-cardBg/60 backdrop-blur-md border border-cardBorder/60 rounded-2xl shadow-xl transition-all duration-300;
+}
+
+.glass-panel-hover {
+  @apply hover:bg-cardBg/80 hover:border-brandBlue/30 hover:shadow-brandBlue/5;
+}
+
+.glass-card {
+  @apply bg-slate-900/40 backdrop-blur-sm border border-slate-800/60 rounded-xl p-6 transition-all duration-300;
+}
+
+
+.glow-green {
+  box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+}
+.glow-amber {
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
+}
+.glow-red {
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.35);
+  animation: pulse-red 2s infinite;
+}
+
+@keyframes pulse-red {
+  0% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-darkBg;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-800 rounded-full hover:bg-slate-700;
+}
+
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  background-color: #0b0f19 !important;
+}
+
+.leaflet-tile {
+  filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
+.leaflet-popup-content-wrapper {
+  background-color: #151d30 !important;
+  border: 1px solid #222f4d !important;
+  color: #f1f5f9 !important;
+  border-radius: 0.75rem !important;
+}
+
+.leaflet-popup-tip {
+  background-color: #151d30 !important;
+}
+
